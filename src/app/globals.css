@@ -1,0 +1,162 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+    --font-sans: var(--font-space-grotesk);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #F7F5F0;
+  --foreground: #1A1A2E;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A2E;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A2E;
+  --primary: #2D6A4F;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EDF6F0;
+  --secondary-foreground: #2D6A4F;
+  --muted: #F0EDE6;
+  --muted-foreground: #6B7280;
+  --accent: #F4A261;
+  --accent-foreground: #FFFFFF;
+  --destructive: #E76F51;
+  --border: #E5E5E0;
+  --input: #E5E5E0;
+  --ring: #2D6A4F;
+  --chart-1: #2D6A4F;
+  --chart-2: #52B788;
+  --chart-3: #F4A261;
+  --chart-4: #E9C46A;
+  --chart-5: #E76F51;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1A1A2E;
+  --sidebar-primary: #2D6A4F;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #EDF6F0;
+  --sidebar-accent-foreground: #2D6A4F;
+  --sidebar-border: #E5E5E0;
+  --sidebar-ring: #2D6A4F;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+    html, body {
+      @apply bg-background text-foreground;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      font-family: var(--font-space-grotesk), sans-serif;
+      font-feature-settings: "ss01", "ss02", "cv01";
+    }
+}
+
+/* Slide content scrolling */
+.slide-scroll {
+  overflow-y: auto;
+  max-height: calc(100vh - 120px);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(45,106,79,0.2) transparent;
+}
+
+.slide-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+.slide-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.slide-scroll::-webkit-scrollbar-thumb {
+  background: rgba(45,106,79,0.25);
+  border-radius: 99px;
+}
+
+/* Table styles for pitch deck */
+.pitch-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.pitch-table th {
+  background: rgba(45,106,79,0.07);
+  color: #2D6A4F;
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.85rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(45,106,79,0.18);
+}
+
+.pitch-table td {
+  padding: 0.5rem 0.85rem;
+  border-bottom: 1px solid #E5E5E0;
+  font-size: 0.82rem;
+  color: #2B2D42;
+  vertical-align: top;
+  line-height: 1.4;
+}
+
+.pitch-table tr:last-child td {
+  border-bottom: none;
+}
+
+.pitch-table tr:hover td {
+  background: rgba(45,106,79,0.03);
+}
+
+.pitch-table td strong,
+.pitch-table th strong {
+  color: #1A1A2E;
+}
+
+/* Checkmark green */
+.check-green {
+  color: #2D6A4F;
+}
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}
